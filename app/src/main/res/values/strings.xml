@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">PokeDex</string>
     <string name="pokemon_image_content">Pokemon Image</string>
+    <string name="by_bents">By Bents</string>
+    <string name="pikachu_logo">Pikachu Logo</string>
 </resources>
