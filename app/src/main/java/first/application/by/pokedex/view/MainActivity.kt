@@ -2,34 +2,35 @@ package first.application.by.pokedex.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import first.application.by.pokedex.R
+import first.application.by.pokedex.databinding.ActivityMainBinding
 import first.application.by.pokedex.domain.Pokemon
 import first.application.by.pokedex.viewModel.PokemonViewModel
 import first.application.by.pokedex.viewModel.PokemonViewModelFactory
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var recyclerView: RecyclerView
-
-    private val viewModel by lazy {
+    lateinit var binding: ActivityMainBinding
+    // lateinit é uma inicialização para variáveis que podem sofrer mutações, by lazy é para variáveis imutáveis
+    private val viewModel by lazy{
         ViewModelProvider(this, PokemonViewModelFactory()).get(PokemonViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(LayoutInflater.from(this))
+        setContentView(binding.root)
 
-        recyclerView = findViewById(R.id.rv_pokemons)
-
-        viewModel.pokemons.observe(this) {
+        viewModel.pokemons.observe(this){
             loadRecycler(it)
         }
     }
 
     private fun loadRecycler(pokemons: List<Pokemon?>) {
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = PokemonAdapter(pokemons)
+        with(binding){
+            rvPokemons.layoutManager= LinearLayoutManager(this@MainActivity)
+            rvPokemons.adapter= PokemonAdapter(pokemons)
+        }
     }
 }

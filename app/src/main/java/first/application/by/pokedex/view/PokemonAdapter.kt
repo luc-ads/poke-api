@@ -11,17 +11,18 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import first.application.by.pokedex.R
+import first.application.by.pokedex.databinding.PokemonItemBinding
 import first.application.by.pokedex.domain.Pokemon
 
 class PokemonAdapter(
     private val items: List<Pokemon?>
 
 ) : RecyclerView.Adapter<PokemonAdapter.ViewHolder>() {
+    lateinit var binding: PokemonItemBinding
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.pokemon_item, parent, false)
 
-        return ViewHolder(view)
+        return ViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -32,31 +33,25 @@ class PokemonAdapter(
 
     override fun getItemCount() = items.size
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(private val binding: PokemonItemBinding): RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
-        fun bindView(item: Pokemon?) = with(itemView) {
-            val imageViewPokemon = findViewById<ImageView>(R.id.image_view_pokemon)
-            val numeration = findViewById<TextView>(R.id.numeration)
-            val pokeName = findViewById<TextView>(R.id.poke_name)
-            val tvType01 = findViewById<TextView>(R.id.tv_type01)
-            val tvType02 = findViewById<TextView>(R.id.tv_type02)
-            val container = findViewById<ConstraintLayout>(R.id.container_geral)
+        fun bindView(item: Pokemon?) = with(itemView){
+            item?.let{
+                Glide.with(itemView.context).load(it.imagemUrl).into(binding.imageViewPokemon)
+                with(binding){
+                    pokeName.text= item.formattedName
+                    numeration.text= "Nº ${item.formattedNumber}"
+                    tvType01.text= item.types[0].name.capitalize()
+                    if (item.types[0].name == "fire") {
+                        tvType01.setTextColor(ContextCompat.getColor(context, R.color.purple_700))
+                    }
+                    if (item.types.size > 1) {
+                        tvType02.visibility= View.VISIBLE
+                        tvType02.text= item.types[1].name.capitalize()
 
-            item?.let {
-                Glide.with(itemView.context).load(it.imagemUrl).into(imageViewPokemon)
-
-                pokeName.text = item.formattedName
-                numeration.text = "Nº ${item.formattedNumber}"
-                tvType01.text = item.types[0].name.capitalize()
-                if (item.types[0].name == "fire") {
-                    tvType01.setTextColor(ContextCompat.getColor(context, R.color.purple_700))
-                }
-                if (item.types.size > 1) {
-                    tvType02.visibility = View.VISIBLE
-                    tvType02.text = item.types[1].name.capitalize()
-
-                } else {
-                    tvType02.visibility = View.GONE
+                    } else {
+                        tvType02.visibility= View.GONE
+                    }
                 }
             }
         }
