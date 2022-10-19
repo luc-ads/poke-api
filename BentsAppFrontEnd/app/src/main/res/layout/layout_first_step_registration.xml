@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Qual a sua finalidade?"
+        android:textSize="28sp"
+        android:textColor="@color/black_blue_title"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/txt_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nos informe se você é um usuário em busca de novos locais e opiniões. Ou um empreendedor querendo melhorar com feedbacks."
+        android:textSize="20sp"
+        android:textColor="@color/gray_light"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:cardCornerRadius="10dp"
+        android:background="@color/blue_light_cardview_background"
+        app:layout_constraintTop_toBottomOf="@id/txt_description"
+        app:layout_constraintStart_toStartOf="parent"
+        android:elevation="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_user"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/img_cardview"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/image_3"
+                android:contentDescription="Logo CardView" />
+
+            <TextView
+                android:id="@+id/title_cardview_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Usuário"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/black_blue_title"
+                app:layout_constraintStart_toEndOf="@+id/img_cardview"
+                app:layout_constraintTop_toTopOf="@id/img_cardview"/>
+
+            <TextView
+                android:id="@+id/txt_cardview_user"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Você poderá compartilhar suas críticas e descobrir lugares incríveis!"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/gray_light"
+                app:layout_constraintTop_toBottomOf="@id/title_cardview_user"
+                app:layout_constraintStart_toStartOf="@id/title_cardview_user"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_restaurant"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintTop_toBottomOf="@id/cardview_user"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_restaurant"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/img_cardview_restaurant"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/image_4"
+                android:contentDescription="Logo CardView" />
+
+            <TextView
+                android:id="@+id/title_layout_user_restaurant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Restaurante"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/black_blue_title"
+                app:layout_constraintStart_toEndOf="@+id/img_cardview_restaurant"
+                app:layout_constraintTop_toTopOf="@id/img_cardview_restaurant"/>
+
+            <TextView
+                android:id="@+id/txt_cardview_restaurant"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Descubra como anda seu negócio pela visão de quem mais importa."
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/gray_light"
+                app:layout_constraintTop_toBottomOf="@id/title_layout_user_restaurant"
+                app:layout_constraintStart_toStartOf="@id/title_layout_user_restaurant"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btn_avancar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginBottom="15dp"
+        android:text="Avançar"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:backgroundTint="@color/azul_principal_botao_desativado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

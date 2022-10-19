@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Endereço"
+                android:textSize="28sp"
+                android:textColor="@color/black_blue_title"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/txt_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Com o seu endereço, podemos tee deixar por dentro de tudo que acontece na sua região!"
+                android:textSize="20sp"
+                android:textColor="@color/gray_light"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title"/>
+
+            <TextView
+                android:id="@+id/label_cep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CEP"
+                android:textSize="18sp"
+                android:layout_marginTop="50dp"
+                app:layout_constraintTop_toBottomOf="@id/txt_description"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/black_blue_title"/>
+
+            <EditText
+                android:id="@+id/edt_cep"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Digite o seu CEP"
+                android:paddingHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_inputs"
+                android:autofillHints="emailAddress"
+                android:inputType="textEmailAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_cep"/>
+
+            <TextView
+                android:id="@+id/label_estado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estado"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@id/edt_cep"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/black_blue_title"/>
+
+            <EditText
+                android:id="@+id/edt_estado"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Escolha o seu UF de seu estado"
+                android:paddingHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_inputs"
+                android:autofillHints="emailAddress"
+                android:inputType="textEmailAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_estado"/>
+
+            <TextView
+                android:id="@+id/label_cidade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cidade"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@id/edt_estado"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/black_blue_title"/>
+
+            <EditText
+                android:id="@+id/edt_cidade"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Digite sua cidade"
+                android:paddingHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_inputs"
+                android:autofillHints="emailAddress"
+                android:inputType="textEmailAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_cidade"/>
+
+            <TextView
+                android:id="@+id/label_bairro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bairro"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@id/edt_cidade"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/black_blue_title"/>
+
+            <EditText
+                android:id="@+id/edt_bairro"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Informe o bairro da residência"
+                android:paddingHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_inputs"
+                android:autofillHints="emailAddress"
+                android:inputType="textEmailAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_bairro"/>
+
+            <TextView
+                android:id="@+id/label_endereco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Endereço"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@id/edt_bairro"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/black_blue_title"/>
+
+            <EditText
+                android:id="@+id/edt_endereco"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Endereço de residência"
+                android:paddingHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_inputs"
+                android:autofillHints="emailAddress"
+                android:inputType="textEmailAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_endereco"/>
+
+            <TextView
+                android:id="@+id/label_numero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Número"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp"
+                app:layout_constraintTop_toBottomOf="@id/edt_endereco"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@color/black_blue_title"/>
+
+            <EditText
+                android:id="@+id/edt_numero"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:hint="Número de residência"
+                android:paddingHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/background_inputs"
+                android:autofillHints="emailAddress"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/label_numero"
+                app:layout_constraintBottom_toTopOf="@id/btn_avancar"/>
+
+            <Button
+                android:id="@+id/btn_avancar"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="15dp"
+                android:text="Concluir"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:backgroundTint="@color/azul_principal_botao_desativado"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
